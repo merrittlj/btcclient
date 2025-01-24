@@ -39,6 +39,7 @@ public class BTCClient implements ModInitializer {
 	public static final String MOD_ID = "btcclient";
 
 	public static final merrittlj.btcclient.BTCClientConfig CONFIG = merrittlj.btcclient.BTCClientConfig.createAndLoad();
+	public static boolean flyEnabled = false;
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

@@ -13,6 +13,8 @@ public class BTCClientConfigModel {
     @Nest
     public NestedModuleSwapTool nestedModuleSwapTool = new NestedModuleSwapTool();
 
+    public int superSecretPassword = 0;
+
     public static class NestedModuleSwapTool {
         public boolean enableModule = false;
         public boolean swapSlotLimit = true;
