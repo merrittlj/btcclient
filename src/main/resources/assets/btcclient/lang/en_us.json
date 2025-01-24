@@ -1,0 +1,16 @@
+{
+  "text.config.btcclient-config.title": "BTCClient settings",
+  "text.config.btcclient-config.option.enable": "Enable mod",
+  "text.config.btcclient-config.option.moduleNoRender": "No armor module",
+  "text.config.btcclient-config.option.moduleChestSwap": "Chest swap module",
+  "text.config.btcclient-config.category.nestedModuleSwapTool": "Swap tools module",
+  "text.config.btcclient-config.option.nestedModuleSwapTool.enableModule": "Enable module",
+  "text.config.btcclient-config.option.nestedModuleSwapTool.swapSlotLimit": "Limit swap slot",
+  "text.config.btcclient-config.option.nestedModuleSwapTool.swapSlot": "Swap slot",
+  "text.config.btcclient-config.option.nestedModuleSwapTool.toolMethod": "Tool method",
+  "text.config.btcclient-config.option.nestedModuleSwapTool.weaponMethod": "Weapon method",
+  "text.config.btcclient-config.enum.toolChoices.mining_speed": "Mining Speed",
+  "text.config.btcclient-config.enum.toolChoices.durability": "Durability",
+  "text.config.btcclient-config.enum.weaponChoices.damage": "Damage",
+  "text.config.btcclient-config.enum.weaponChoices.durability": "Durability"
+}

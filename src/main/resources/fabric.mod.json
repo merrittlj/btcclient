@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "btcclient",
+	"version": "${version}",
+	"name": "BTCClient",
+	"description": "Custom client mods made by BitcoinInvester",
+	"authors": [
+		"merrittlj/BitcoinInvester"
+	],
+	"contact": {
+		"homepage": "https://github.com/merrittlj/btcclient",
+		"sources": "https://github.com/merrittlj/btcclient"
+	},
+	"license": "MIT",
+	"icon": "assets/btcclient/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"merrittlj.btcclient.BTCClient"
+		],
+		"fabric-datagen": [
+			"merrittlj.btcclient.BTCClientDataGenerator"
+		]
+	},
+	"mixins": [
+		"btcclient.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.00",
+		"minecraft": "~1.21.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

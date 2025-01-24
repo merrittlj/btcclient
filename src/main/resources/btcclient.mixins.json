@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "merrittlj.btcclient.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"NoArmorMixin",
+		"ChestplateSwapMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
