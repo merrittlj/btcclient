@@ -50,6 +50,8 @@ public class BTCClient implements ModInitializer {
 	public static boolean flyEnabled = false;
 	public static boolean noFallEnabled = false;
 	public static boolean anyElytraEnabled = false;
+	public static boolean infiniteJumpEnabled = false;
+	public static boolean reachEnabled = false;
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

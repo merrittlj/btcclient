@@ -47,6 +47,20 @@ public class SecretScreen extends BaseOwoScreen<FlowLayout> {
                             BTCClient.anyElytraEnabled = !BTCClient.anyElytraEnabled;
                         }
                 )
-        );
+        ).child(
+                Components.button(
+                        Text.literal("Infinite Jump"),
+                        button -> {
+                            BTCClient.infiniteJumpEnabled = !BTCClient.infiniteJumpEnabled;
+                        }
+                )
+        ).child(
+                Components.button(
+                        Text.literal("Reach"),
+                        button -> {
+                            BTCClient.reachEnabled = !BTCClient.reachEnabled;
+                        }
+                )
+        );;
     }
 }
