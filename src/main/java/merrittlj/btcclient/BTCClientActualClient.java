@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
@@ -22,8 +23,12 @@ public class BTCClientActualClient implements ClientModInitializer
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (superSecretBind.wasPressed()) {
                 if (BTCClient.CONFIG.superSecretPassword() != 1337) return;
-                client.player.sendMessage(Text.of("Launching super secret UI"), false);
-                // open ui
+                client.setScreen(new SecretScreen());
+            }
+
+            if (BTCClient.noFallEnabled) {
+                client.player.networkHandler
+                        .sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(true, client.player.horizontalCollision));
             }
         });
     }

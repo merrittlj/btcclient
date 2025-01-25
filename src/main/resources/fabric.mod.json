@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"merrittlj.btcclient.BTCClientDataGenerator"
+		],
+		"client": [
+			"merrittlj.btcclient.BTCClientActualClient"
 		]
 	},
 	"mixins": [
