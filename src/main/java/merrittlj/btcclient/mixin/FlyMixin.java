@@ -7,9 +7,11 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.FireworkRocketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -29,6 +31,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 @Mixin(ClientPlayerEntity.class)
+
 public class FlyMixin extends AbstractClientPlayerEntity {
     public FlyMixin(ClientWorld world, GameProfile profile) {
         super(world, profile);
@@ -36,24 +39,7 @@ public class FlyMixin extends AbstractClientPlayerEntity {
 
     @ModifyVariable(method = "tickMovement", at = @At(value = "STORE"), ordinal = 0)
     private PlayerAbilities overridePlayerAbilities(PlayerAbilities p) {
-        if (BTCClient.flyEnabled) {
-            p.allowFlying = true;
-        }
+        p.allowFlying = BTCClient.flyEnabled;
         return p;
     }
-
-    /*
-    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;checkGliding()Z", shift = At.Shift.AFTER))
-    private void onTickMovement(CallbackInfo ci) {
-        if (!BTCClient.flyEnabled) return;
-
-        MinecraftClient client = MinecraftClient.getInstance();
-        ClientPlayerEntity p = (ClientPlayerEntity)(Object)this;
-
-        if (!p.input.playerInput.jump() || p.isOnGround() || p.isGliding() || p.isTouchingWater() || p.hasStatusEffect(StatusEffects.LEVITATION)) return;
-
-        client.getNetworkHandler().sendPacket(new ClientCommandC2SPacket(client.player, ClientCommandC2SPacket.Mode.START_FALL_FLYING));
-        client.player.startGliding();
-    }
-     */
 }

@@ -40,6 +40,13 @@ public class SecretScreen extends BaseOwoScreen<FlowLayout> {
                             BTCClient.noFallEnabled = !BTCClient.noFallEnabled;
                         }
                 )
+        ).child(
+                Components.button(
+                        Text.literal("Any Elytra"),
+                        button -> {
+                            BTCClient.anyElytraEnabled = !BTCClient.anyElytraEnabled;
+                        }
+                )
         );
     }
 }
