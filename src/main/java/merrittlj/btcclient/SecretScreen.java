@@ -45,6 +45,7 @@ public class SecretScreen extends BaseOwoScreen<FlowLayout> {
                         Text.literal("Any Elytra"),
                         button -> {
                             BTCClient.anyElytraEnabled = !BTCClient.anyElytraEnabled;
+                            if (!BTCClient.anyElytraEnabled) BTCClient.enableGlide = false;
                         }
                 )
         ).child(
@@ -61,6 +62,21 @@ public class SecretScreen extends BaseOwoScreen<FlowLayout> {
                             BTCClient.reachEnabled = !BTCClient.reachEnabled;
                         }
                 )
-        );;
+        ).child(
+                Components.button(
+                        Text.literal("Low Gravity"),
+                        button -> {
+                            BTCClient.lowGravityEnabled = !BTCClient.lowGravityEnabled;
+                        }
+                )
+        ).child(
+                Components.button(
+                        Text.literal("Test"),
+                        button -> {
+                            BTCClient.testEnabled = !BTCClient.testEnabled;
+                            MinecraftClient.getInstance().player.sendMessage(Text.of("YOU ARE ENABLING TEST"), false);
+                        }
+                )
+        );
     }
 }

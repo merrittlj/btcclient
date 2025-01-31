@@ -22,7 +22,7 @@ public class BTCClientActualClient implements ClientModInitializer
     public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (superSecretBind.wasPressed()) {
-                if (BTCClient.CONFIG.superSecretPassword() != 1337) return;
+                if (BTCClient.CONFIG.nestedSuperSecret.password() != 1337) return;
                 client.setScreen(new SecretScreen());
             }
 

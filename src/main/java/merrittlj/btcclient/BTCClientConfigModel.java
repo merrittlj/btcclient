@@ -12,8 +12,8 @@ public class BTCClientConfigModel {
     public boolean moduleChestSwap = false;
     @Nest
     public NestedModuleSwapTool nestedModuleSwapTool = new NestedModuleSwapTool();
-
-    public int superSecretPassword = 0;
+    @Nest
+    public NestedSuperSecret nestedSuperSecret = new NestedSuperSecret();
 
     public static class NestedModuleSwapTool {
         public boolean enableModule = false;
@@ -31,5 +31,10 @@ public class BTCClientConfigModel {
             DAMAGE,
             DURABILITY
         }
+    }
+
+    public static class NestedSuperSecret {
+        public int password = 0;
+        public double anyElytraSpeed = 1.5;
     }
 }

@@ -14,16 +14,12 @@ import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.projectile.FireworkRocketEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -31,9 +27,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -52,6 +45,9 @@ public class BTCClient implements ModInitializer {
 	public static boolean anyElytraEnabled = false;
 	public static boolean infiniteJumpEnabled = false;
 	public static boolean reachEnabled = false;
+	public static boolean lowGravityEnabled = false;
+	public static boolean testEnabled = false;
+	public static boolean enableGlide = false;
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -163,7 +159,7 @@ public class BTCClient implements ModInitializer {
 		UseItemCallback.EVENT.register((player, world, hand) -> {
 			if (player.isGliding()) {
 				Vec3d vec3d = player.getRotationVector();
-				double d = 5;
+				double d = BTCClient.CONFIG.nestedSuperSecret.anyElytraSpeed();
 				double e = 0.1;
 				Vec3d vec3d2 = player.getVelocity();
 				player

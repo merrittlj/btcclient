@@ -8,7 +8,9 @@
 		"FlyMixin",
 		"AnyElytraMixin",
 		"InfiniteJumpMixin",
-		"ReachMixin"
+		"ReachMixin",
+		"LowGravityMixin",
+		"TestMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
